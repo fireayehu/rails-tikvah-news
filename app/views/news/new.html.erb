@@ -1,4 +1,11 @@
 <h1> Create new news</h1>
+<% if @news.errors.any? %>
+    <ul>
+        <% @news.errors.full_messages.each do |msg| %>
+            <li> <%= msg %> </li>
+        <% end %>
+    </ul>
+<% end %>
 <%= form_for @news do |f| %>
     <div>
         <%= f.label :title %><br/>

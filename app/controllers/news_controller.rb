@@ -5,10 +5,17 @@ class NewsController < ApplicationController
 
     def create
         @news = News.new(news_params)
-        @news.save
-        redirect_to news_show(@news)
+        if @news.save
+            flash[:notice] = "News Has Been Created Succesfully"
+            redirect_to news_path(@news)
+        else
+            render 'new'
+        end
     end
 
+    def show 
+        @news = News.find(params[:id])
+    end
     private
         def news_params
             params.require(:news).permit(:title, :description)
