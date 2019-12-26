@@ -1,16 +1,30 @@
-<%= link_to 'Add News', new_news_path %>
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-    </tr>
-    <% @news.each do |n|%>
-        <tr>
-            <td><%= n.title %></td>
-            <td><%= n.description %></td>
-            <td> <%= link_to 'Edit', edit_news_path(n) %> </td>
-            <td> <%= link_to 'Show', news_path(n) %> </td>
-            <td> <%= link_to 'Delete', news_path(n), method: :delete, data:{confirm:"Are you surea?"} %> </td>
-        </tr>
-    <% end %>
-</table>
+<div class="site-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2>Recent News</h2>
+        </div>
+      </div>
+      <div class="row">
+      <% @news.each do |n|%>
+        <div class="col-lg-4 mb-4">
+          <div class="entry2">
+            <div class="excerpt">
+            <span class="post-category text-white bg-secondary mb-3">Politics</span>
+
+            <h2><%= link_to n.title, news_path(n) %></h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+            
+              <p><%= n.description %></p>
+              <p><%= link_to 'Read More', news_path(n) %> | <%= link_to 'Edit', edit_news_path(n) %>  | <%= link_to 'Delete', news_path(n), method: :delete, data:{confirm:"Are you sure?"} %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      
+    </div>
+  </div>

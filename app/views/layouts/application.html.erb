@@ -5,12 +5,93 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'magnific-popup', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'jquery-ui', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'owl.carousel.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'owl.theme.default.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'bootstrap-datepicker', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'aos', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render 'layouts/messages' %>
-    <%= yield %>
+  <div class="site-wrap">
+
+  <div class="site-mobile-menu">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+  
+  <header class="site-navbar" role="banner">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        
+        <div class="col-12 search-form-wrap js-search-form">
+          <form method="get" action="#">
+            <input type="text" id="s" class="form-control" placeholder="Search...">
+            <button class="search-btn" type="submit"><span class="icon-search"></span></button>
+          </form>
+        </div>
+
+        <div class="col-4 site-logo">
+          <a href="index.html" class="text-black h2 mb-0">TIKVAH NEWS</a>
+        </div>
+
+        <div class="col-8 text-right">
+          <nav class="site-navigation" role="navigation">
+            <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
+              <li><%= link_to 'Home', root_path %></li>
+              <li><%= link_to 'Add News', new_news_path %></li>
+              <li><%= link_to 'About', root_path %></li>
+              <li class="d-none d-lg-inline-block"><a href="#" class="js-search-toggle"><span class="icon-search"></span></a></li>
+            </ul>
+          </nav>
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black d-inline-block d-lg-none"><span class="icon-menu h3"></span></a></div>
+        </div>
+
+    </div>
+  </header>
+
+  <%= render 'layouts/messages' %>
+  <%= yield %>
+  
+  <div class="site-footer">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-4">
+          <h3 class="footer-heading mb-4">About Us</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat reprehenderit magnam deleniti quasi saepe, consequatur atque sequi delectus dolore veritatis obcaecati quae, repellat eveniet omnis, voluptatem in. Soluta, eligendi, architecto.</p>
+        </div>
+        <div class="col-md-3 ml-auto">
+          
+        </div>
+        <div class="col-md-4">
+          
+
+          <div>
+            <h3 class="footer-heading mb-4">Connect With Us</h3>
+            <p>
+              <a href="#"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
+              <a href="#"><span class="icon-twitter p-2"></span></a>
+              <a href="#"><span class="icon-instagram p-2"></span></a>
+              <a href="#"><span class="icon-rss p-2"></span></a>
+              <a href="#"><span class="icon-envelope p-2"></span></a>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
   </body>
 </html>
