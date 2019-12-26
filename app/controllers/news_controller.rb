@@ -31,6 +31,13 @@ class NewsController < ApplicationController
     def show 
         @news = News.find(params[:id])
     end
+
+    def destroy
+        @news = News.find(params[:id])
+        @news.destroy
+        flash[:notice] = "News Has Been Deleted Succesfully"
+        redirect_to action: "index"
+    end
     private
         def news_params
             params.require(:news).permit(:title, :description)
