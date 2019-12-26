@@ -1,0 +1,15 @@
+<%= link_to 'Add News', new_news_path %>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+    <% @news.each do |n|%>
+        <tr>
+            <td><%= n.title %></td>
+            <td><%= n.description %></td>
+            <td> <%= link_to 'Edit', edit_news_path(n) %> </td>
+            <td> <%= link_to 'Show', news_path(n) %> </td>
+        </tr>
+    <% end %>
+</table>

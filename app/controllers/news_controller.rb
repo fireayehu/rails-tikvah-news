@@ -1,8 +1,23 @@
 class NewsController < ApplicationController
+    def index
+        @news = News.all
+    end
     def new
         @news = News.new
     end
-
+    def edit
+        @news = News.find(params[:id])
+    end
+    
+    def update
+        @news = News.find(params[:id])
+        if @news.update(news_params)
+            flash[:notice] = "News Has Been Updated Succesfully"
+            redirect_to news_path(@news)
+        else
+            render 'edit'
+        end
+    end
     def create
         @news = News.new(news_params)
         if @news.save
