@@ -1,13 +1,7 @@
 
-<% if @news.errors.any? %>
-    <ul>
-        <% @news.errors.full_messages.each do |msg| %>
-            <li> <%= msg %> </li>
-        <% end %>
-    </ul>
-<% end %>
 <div class="site-section bg-light">
       <div class="container">
+        <%= render 'shared/errors', obj:@news %>
         <div class="row">
             
           <div class="col-md-8 offset-md-2 mb-5">
